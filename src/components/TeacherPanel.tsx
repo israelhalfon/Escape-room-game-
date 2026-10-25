@@ -284,7 +284,7 @@ export const TeacherPanel: React.FC<TeacherPanelProps> = ({
             <label className="block text-xs text-slate-300 mb-2">
               רמת קושי פעילה במשחק הכיתתי:
             </label>
-            <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800">
+            <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800">
               {(['all', 'easy', 'medium', 'hard'] as const).map((d) => (
                 <button
                   key={d}
@@ -587,7 +587,7 @@ export const TeacherPanel: React.FC<TeacherPanelProps> = ({
 
         {/* Filter Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800 w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setTopicFilter('all')}
@@ -615,7 +615,7 @@ export const TeacherPanel: React.FC<TeacherPanelProps> = ({
             ))}
           </div>
 
-          <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800 w-full sm:w-auto">
             {(['all', 'easy', 'medium', 'hard'] as const).map((d) => (
               <button
                 key={d}

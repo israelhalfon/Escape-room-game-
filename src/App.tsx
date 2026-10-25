@@ -660,129 +660,137 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-[#F8FAFC] flex flex-col">
-      {/* ==================== TOP BAR (Strict 3-Zone Contract) ==================== */}
-      <header className="flex items-center justify-between gap-8 px-6 py-4 bg-[#0F172A]/95 border-b border-[#334155] sticky top-0 z-40 backdrop-blur">
-        {/* Zone 1: Single text element wordmark */}
-        <a
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            goToHomeSetup();
-          }}
-          className="text-lg font-extrabold tracking-tight text-slate-100 whitespace-nowrap shrink-0"
-        >
-          המעבדה הסודית: פיצוח הקוד המתמטי
-        </a>
-
-        {/* Zone 2: 5 concise single-line text navigation links */}
-        <nav className="flex items-center gap-6 text-sm font-medium text-slate-300">
-          <button
-            type="button"
-            onClick={() => setActiveTab('game')}
-            className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer pb-0.5 ${
-              activeTab === 'game'
-                ? 'text-cyan-400 border-b-2 border-cyan-400 font-bold'
-                : ''
-            }`}
-          >
-            זירת המשחק
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('rules')}
-            className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer pb-0.5 ${
-              activeTab === 'rules'
-                ? 'text-cyan-400 border-b-2 border-cyan-400 font-bold'
-                : ''
-            }`}
-          >
-            חוקי המשחק
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('simulators')}
-            className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer pb-0.5 ${
-              activeTab === 'simulators'
-                ? 'text-cyan-400 border-b-2 border-cyan-400 font-bold'
-                : ''
-            }`}
-          >
-            כלי מעבדה
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('leaderboard')}
-            className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer pb-0.5 ${
-              activeTab === 'leaderboard'
-                ? 'text-cyan-400 border-b-2 border-cyan-400 font-bold'
-                : ''
-            }`}
-          >
-            לוח שיאים
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('teacher')}
-            className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer pb-0.5 ${
-              activeTab === 'teacher'
-                ? 'text-cyan-400 border-b-2 border-cyan-400 font-bold'
-                : ''
-            }`}
-          >
-            פאנל מורה
-          </button>
-        </nav>
-
-        {/* Zone 3: 1 primary action */}
-        <div className="flex items-center shrink-0">
-          <button
-            type="button"
-            onClick={() => {
-              if (activeTab === 'game' && gamePhase === 'SETUP_LOBBY') {
-                startTeacherSoloRun();
-              } else {
+    <div className="min-h-screen bg-[#0F172A] text-[#F8FAFC] flex flex-col overflow-x-hidden">
+      {/* ==================== RESPONSIVE TOP BAR ==================== */}
+      <header className="w-full bg-[#0F172A]/95 border-b border-[#334155] sticky top-0 z-40 backdrop-blur px-3 sm:px-6 py-2.5 sm:py-3">
+        <div className="max-w-[1380px] mx-auto flex flex-col xl:flex-row xl:items-center xl:justify-between gap-2.5">
+          {/* Top Row on Mobile / Preview: Brand Title + Primary Action */}
+          <div className="flex items-center justify-between gap-3">
+            <a
+              href="#top"
+              onClick={(e) => {
+                e.preventDefault();
                 goToHomeSetup();
-              }
-            }}
-            className="px-4 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              }}
+              className="text-base sm:text-lg font-extrabold tracking-tight text-slate-100 leading-tight"
+            >
+              המעבדה הסודית: פיצוח הקוד המתמטי
+            </a>
+
+            <div className="flex items-center gap-2 shrink-0 xl:hidden">
+              <button
+                type="button"
+                onClick={toggleMute}
+                className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg flex items-center justify-center cursor-pointer"
+                title={isMuted ? 'הפעל צלילים' : 'השתק צלילים'}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4 text-rose-400" />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-cyan-400" />
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (activeTab === 'game' && gamePhase === 'SETUP_LOBBY') {
+                    startTeacherSoloRun();
+                  } else {
+                    goToHomeSetup();
+                  }
+                }}
+                className="px-3 py-1.5 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
+              >
+                {activeTab === 'game' && gamePhase === 'SETUP_LOBBY'
+                  ? 'התנסות למורה'
+                  : 'מסך הבית'}
+              </button>
+            </div>
+          </div>
+
+          {/* Center / Second Row: 5 Navigation Tabs — Always 100% Visible on Phone, Preview & Desktop */}
+          <nav
+            aria-label="ניווט ראשי"
+            className="grid grid-cols-5 sm:flex sm:flex-wrap items-center justify-center gap-1 sm:gap-1.5 bg-slate-900/90 border border-slate-800 p-1 rounded-xl w-full xl:w-auto"
           >
-            {activeTab === 'game' && gamePhase === 'SETUP_LOBBY'
-              ? 'התנסות מהירה למורה'
-              : 'מסך הבית (התחלה)'}
-          </button>
+            {(
+              [
+                { id: 'game' as ActiveTab, label: 'זירת המשחק', shortLabel: 'משחק' },
+                { id: 'rules' as ActiveTab, label: 'חוקי המשחק', shortLabel: 'חוקים' },
+                { id: 'simulators' as ActiveTab, label: 'כלי מעבדה', shortLabel: 'כלי מעבדה' },
+                { id: 'leaderboard' as ActiveTab, label: 'לוח שיאים', shortLabel: 'שיאים' },
+                { id: 'teacher' as ActiveTab, label: 'פאנל מורה', shortLabel: 'מורה' },
+              ] as const
+            ).map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-1.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-sm font-bold text-center transition-all cursor-pointer whitespace-nowrap ${
+                    isActive
+                      ? 'bg-cyan-500 text-slate-950 shadow-sm'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/70'
+                  }`}
+                >
+                  <span className="sm:hidden">{tab.shortLabel}</span>
+                  <span className="hidden sm:inline">{tab.label}</span>
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Desktop Right Action (xl and above) */}
+          <div className="hidden xl:flex items-center gap-2.5 shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                if (activeTab === 'game' && gamePhase === 'SETUP_LOBBY') {
+                  startTeacherSoloRun();
+                } else {
+                  goToHomeSetup();
+                }
+              }}
+              className="px-4 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              {activeTab === 'game' && gamePhase === 'SETUP_LOBBY'
+                ? 'התנסות מהירה למורה'
+                : 'מסך הבית (התחלה)'}
+            </button>
+          </div>
         </div>
       </header>
 
       {/* ==================== MAIN CONTENT CONTAINER ==================== */}
-      <main className="flex-1 w-full max-w-[1380px] mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6">
+      <main className="flex-1 w-full max-w-[1380px] mx-auto px-3 sm:px-6 py-4 sm:py-6 flex flex-col gap-4 sm:gap-6">
         {/* Sub-Toolbar for Classroom Status, Home Return & Audio Control */}
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-[#1E293B]/70 border border-[#334155] rounded-xl px-4 py-2.5 text-xs">
-          <div className="flex flex-wrap items-center gap-3 text-slate-300">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 bg-[#1E293B]/70 border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs">
+          <div className="flex flex-wrap items-center gap-2 text-slate-300">
             <span className="font-semibold text-slate-100">כיתה ה׳ · חשבון</span>
             <span aria-hidden="true">·</span>
             <span>אחוזים בסיסי</span>
             <span aria-hidden="true">·</span>
-            <span>ממוצע (חישוב, השלמת חסר, הוספת איבר)</span>
+            <span>ממוצע</span>
             <span aria-hidden="true">·</span>
-            <span>מספרים עשרוניים (השוואה, בין עשרוניים, המרה לאחוזים)</span>
+            <span>מספרים עשרוניים</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2">
             {(gamePhase !== 'SETUP_LOBBY' || activeTab !== 'game') && (
               <button
                 type="button"
                 onClick={goToHomeSetup}
-                className="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 rounded-md font-bold flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+                className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/40 rounded-md font-bold flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
               >
                 <Home className="w-3.5 h-3.5" />
-                <span>חזרה למסך הבית (התחלה)</span>
+                <span>חזרה למסך הבית</span>
               </button>
             )}
             <button
               type="button"
               onClick={() => setActiveTab('rules')}
-              className="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-md font-medium flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+              className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-md font-medium flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
             >
               <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
               <span>איך משחקים? (חוקים)</span>
@@ -791,16 +799,16 @@ export default function App() {
               <button
                 type="button"
                 onClick={resetScoresForClass}
-                className="px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded-md font-bold flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+                className="px-2.5 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded-md font-bold flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                <span>סיום התנסות מורה ואיפוס לכיתה</span>
+                <span>סיום התנסות מורה ואיפוס</span>
               </button>
             )}
             <button
               type="button"
               onClick={toggleMute}
-              className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+              className="hidden sm:flex px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md items-center gap-1.5 cursor-pointer whitespace-nowrap"
             >
               {isMuted ? (
                 <>

@@ -69,11 +69,11 @@ export const DecimalSimulator: React.FC<DecimalSimulatorProps> = ({
           </h3>
         </div>
 
-        <div className="flex items-center gap-1 p-1 bg-slate-900 rounded-lg border border-slate-800">
+        <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-900 rounded-lg border border-slate-800 w-full sm:w-auto">
           <button
             type="button"
             onClick={() => setMode('between')}
-            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer ${
               mode === 'between'
                 ? 'bg-emerald-500 text-slate-950 font-bold'
                 : 'text-slate-300 hover:text-white'
@@ -84,7 +84,7 @@ export const DecimalSimulator: React.FC<DecimalSimulatorProps> = ({
           <button
             type="button"
             onClick={() => setMode('compare')}
-            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer ${
               mode === 'compare'
                 ? 'bg-emerald-500 text-slate-950 font-bold'
                 : 'text-slate-300 hover:text-white'
@@ -95,7 +95,7 @@ export const DecimalSimulator: React.FC<DecimalSimulatorProps> = ({
           <button
             type="button"
             onClick={() => setMode('convert')}
-            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer ${
               mode === 'convert'
                 ? 'bg-emerald-500 text-slate-950 font-bold'
                 : 'text-slate-300 hover:text-white'
@@ -192,7 +192,9 @@ export const DecimalSimulator: React.FC<DecimalSimulatorProps> = ({
                     }`}
                   />
                   <span
-                    className={`mt-3 font-math text-[11px] ${
+                    className={`mt-3 font-math text-[10px] sm:text-[11px] ${
+                      i % 2 === 1 ? 'hidden sm:inline' : ''
+                    } ${
                       i === 0 || i === 10
                         ? 'text-cyan-300 font-bold'
                         : 'text-slate-400 group-hover:text-slate-200'

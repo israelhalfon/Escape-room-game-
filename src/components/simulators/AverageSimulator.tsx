@@ -81,11 +81,11 @@ export const AverageSimulator: React.FC<AverageSimulatorProps> = ({
         </div>
 
         {/* Interactive Mode Segmented Buttons */}
-        <div className="flex items-center gap-1 p-1 bg-slate-900 rounded-lg border border-slate-800">
+        <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-900 rounded-lg border border-slate-800 w-full sm:w-auto">
           <button
             type="button"
             onClick={() => setMode('calculate')}
-            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer ${
               mode === 'calculate'
                 ? 'bg-amber-500 text-slate-950 font-bold'
                 : 'text-slate-300 hover:text-white'
@@ -96,7 +96,7 @@ export const AverageSimulator: React.FC<AverageSimulatorProps> = ({
           <button
             type="button"
             onClick={() => setMode('missing')}
-            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer ${
               mode === 'missing'
                 ? 'bg-amber-500 text-slate-950 font-bold'
                 : 'text-slate-300 hover:text-white'
@@ -107,7 +107,7 @@ export const AverageSimulator: React.FC<AverageSimulatorProps> = ({
           <button
             type="button"
             onClick={() => setMode('effect')}
-            className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer ${
               mode === 'effect'
                 ? 'bg-amber-500 text-slate-950 font-bold'
                 : 'text-slate-300 hover:text-white'

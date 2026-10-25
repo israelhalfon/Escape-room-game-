@@ -24,41 +24,41 @@ export const SimulatorsDeck: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-1.5 p-1.5 bg-slate-900 rounded-xl border border-slate-800 shrink-0">
+        <div className="flex flex-wrap items-center gap-1.5 p-1.5 bg-slate-900 rounded-xl border border-slate-800 w-full md:w-auto">
           <button
             type="button"
             onClick={() => setActiveTool('percentages')}
-            className={`px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`flex-1 md:flex-initial justify-center px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               activeTool === 'percentages'
                 ? 'bg-cyan-500 text-slate-950'
                 : 'text-slate-300 hover:text-white'
             }`}
           >
-            <Zap className="w-4 h-4" />
+            <Zap className="w-4 h-4 shrink-0" />
             <span>אחוזים (רשת ה-100)</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTool('averages')}
-            className={`px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`flex-1 md:flex-initial justify-center px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               activeTool === 'averages'
                 ? 'bg-amber-500 text-slate-950'
                 : 'text-slate-300 hover:text-white'
             }`}
           >
-            <Scale className="w-4 h-4" />
+            <Scale className="w-4 h-4 shrink-0" />
             <span>מאזני הממוצע</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTool('decimals')}
-            className={`px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`flex-1 md:flex-initial justify-center px-3 sm:px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               activeTool === 'decimals'
                 ? 'bg-emerald-500 text-slate-950'
                 : 'text-slate-300 hover:text-white'
             }`}
           >
-            <Search className="w-4 h-4" />
+            <Search className="w-4 h-4 shrink-0" />
             <span>ציר עשרוניים (זום)</span>
           </button>
         </div>
