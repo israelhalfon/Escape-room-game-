@@ -1,0 +1,6 @@
+{
+  "name": "המעבדה הסודית: פיצוח הקוד המתמטי - כיתה ה'",
+  "description": "משחק חדר בריחה תחרותי לכיתה ה' ללוח החכם בנושאי אחוזים, ממוצע ומספרים עשרוניים עם סימולטורים ויזואליים ופאנל מורה.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
