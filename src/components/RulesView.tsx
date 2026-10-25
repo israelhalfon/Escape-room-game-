@@ -36,7 +36,7 @@ export const RulesView: React.FC<RulesViewProps> = ({
       <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
         <div>
           <div className="text-xs text-cyan-400 font-medium mb-1">
-            מדריך הפעלה לכיתה ולמורה · כיתה ה׳
+            מדריך הפעלה לכיתה ולמורה · כיתה ו׳
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 flex items-center gap-2.5">
             <BookOpen className="w-7 h-7 text-cyan-400 shrink-0" />

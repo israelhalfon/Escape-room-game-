@@ -1,7 +1,7 @@
 import { runFullGameTestSuite } from '../src/utils/testSuite';
 
 console.log('==============================================================');
-console.log('🧪 הרצת תוכנית בדיקות אוטומטית: המעבדה הסודית - כיתה ה׳');
+console.log('🧪 הרצת תוכנית בדיקות אוטומטית: המעבדה הסודית - כיתה ו׳');
 console.log('==============================================================\n');
 
 const summary = runFullGameTestSuite();

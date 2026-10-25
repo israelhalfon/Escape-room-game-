@@ -767,7 +767,7 @@ export default function App() {
         {/* Sub-Toolbar for Classroom Status, Home Return & Audio Control */}
         <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 bg-[#1E293B]/70 border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs">
           <div className="flex flex-wrap items-center gap-2 text-slate-300">
-            <span className="font-semibold text-slate-100">כיתה ה׳ · חשבון</span>
+            <span className="font-semibold text-slate-100">כיתה ו׳ · חשבון</span>
             <span aria-hidden="true">·</span>
             <span>אחוזים בסיסי</span>
             <span aria-hidden="true">·</span>
@@ -975,7 +975,7 @@ export default function App() {
                 <div className="lg:col-span-7 bg-[#1E293B] border border-[#334155] rounded-xl p-6 sm:p-8 flex flex-col justify-between gap-6">
                   <div className="flex flex-col gap-4">
                     <div className="text-xs font-semibold text-cyan-400">
-                      משחק כיתתי ללוח החכם · סיכום נושאי כיתה ה׳
+                      משחק כיתתי ללוח החכם · סיכום נושאי כיתה ו׳
                     </div>
                     <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-100 leading-tight headline-balance">
                       המעבדה הסודית ננעלה! האם הכיתה שלכם תצליח לפצח את 3 הכספות?
@@ -2023,7 +2023,7 @@ export default function App() {
                     כל 3 כספות המעבדה נפרצו בהצלחה!
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100">
-                    כל הכבוד לכיתה ה׳! פיצחתם את המעבדה הסודית!
+                    כל הכבוד לכיתה ו׳! פיצחתם את המעבדה הסודית!
                   </h2>
                   <p className="text-sm text-slate-300 mt-2 max-w-xl mx-auto">
                     הוכחתם שליטה מעולה באחוזים בסיסי, בחישוב והבנת הממוצע, ובמספרים עשרוניים.
